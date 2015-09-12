@@ -110,8 +110,11 @@ StitchedMap::get_stitch()
   warpAffine(image2,image,H,image.size());
 
   // blend image1 onto the transformed image2
-  addWeighted(image,.5,image1,.5,0.0,image);
+  //addWeighted(image,.5,image1,.5,0.0,image);
 
+  //imwrite("out.pgm", image1);
+
+  //return image;
   return image;
 }
 
