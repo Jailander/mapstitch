@@ -22,6 +22,7 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
+
 #include "mapstitch/mapstitch.h"
 #include "math.h"
 
@@ -107,10 +108,12 @@ StitchedMap::get_stitch()
 {
   // create storage for new image and get transformations
   Mat image(image2.size(), image2.type());
+
   warpAffine(image2,image,H,image.size());
 
   // blend image1 onto the transformed image2
-  addWeighted(image,.5,image1,.5,0.0,image);
+  //cvFlip(image, NULL,1);
+  //addWeighted(image,.5,image1,.5,0.0,image);
 
   return image;
 }
